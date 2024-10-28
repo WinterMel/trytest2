@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class RoleSelectionPage extends StatelessWidget {
+class RoleSelectionPage extends StatefulWidget {
   const RoleSelectionPage({super.key});
+
+  @override
+  _RoleSelectionPageState createState() => _RoleSelectionPageState();
+}
+
+class _RoleSelectionPageState extends State<RoleSelectionPage> {
+  bool showTapText = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +43,19 @@ class RoleSelectionPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 20),
-                      SizedBox(
-                        width: 300.0,
-                        height: 300.0,
-                        child: Image.asset(
-                          'lib/assets/role_selection_illustration.png',
-                          fit: BoxFit.contain,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showTapText = true; 
+                          });
+                        },
+                        child: SizedBox(
+                          width: 300.0,
+                          height: 300.0,
+                          child: Image.asset(
+                            'lib/assets/role_selection_illustration.png',
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -57,9 +71,14 @@ class RoleSelectionPage extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
+                      if (showTapText) 
+                        const Text(
+                          'Pick your role',
+                          style: TextStyle(fontSize: 18, color: Colors.black54),
+                        ),
+                      const SizedBox(height: 8),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width *
-                            0.99, // to occupy 99% of screen width
+                        width: MediaQuery.of(context).size.width * 0.99,
                         height: 50,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -75,12 +94,6 @@ class RoleSelectionPage extends StatelessWidget {
                           ),
                           onPressed: () {
                             // Logic to identify type of user for boarder
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const SignUpPage(userType: 'Boarder'),
-                            //   ),
-                            // );
                           },
                           child: const Text(
                             'Are you a user?',
@@ -90,8 +103,7 @@ class RoleSelectionPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width *
-                            0.99, // to occupy 99% of screen width
+                        width: MediaQuery.of(context).size.width * 0.99,
                         height: 50,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -105,12 +117,6 @@ class RoleSelectionPage extends StatelessWidget {
                           ),
                           onPressed: () {
                             // Logic to identify type of user for owner
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const SignUpPage(userType: 'Owner'),
-                            //   ),
-                            // );
                           },
                           child: const Text(
                             'Are you an owner?',
