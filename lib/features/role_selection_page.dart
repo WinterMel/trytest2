@@ -34,7 +34,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                         textAlign: TextAlign.center,
                       ),
                       const Text(
-                        'myHomy.',
+                        'BoardM8.',
                         style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.w900,
@@ -46,7 +46,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            showTapText = true; 
+                            showTapText = true;
                           });
                         },
                         child: SizedBox(
@@ -71,7 +71,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
-                      if (showTapText) 
+                      if (showTapText)
                         const Text(
                           'Pick your role',
                           style: TextStyle(fontSize: 18, color: Colors.black54),
@@ -96,7 +96,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                             // Logic to identify type of user for boarder
                           },
                           child: const Text(
-                            'Are you a user?',
+                            'Are you a boarder?',
                             style: TextStyle(fontSize: 16, color: Colors.green),
                           ),
                         ),
